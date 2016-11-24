@@ -132,4 +132,17 @@ describe('Soil moisture Driver', function () {
             done();
         }, 500);
     });
+
+    it('should emit `error` when voltage is outof the expected range', function (done) {
+        var errorVoltage = 0.5;
+        var expectedErrorMessage = 'Unexpected voltage detected, check your sensor.';
+        whenever(adc).getVoltage(Function).then(function (callback) {
+            callback(undefined, errorVoltage);
+        });
+        device.on('error', function (error) {
+            device.detach();
+            assert.equal(error.message, expectedErrorMessage);
+            done();
+        });
+    });
 });
