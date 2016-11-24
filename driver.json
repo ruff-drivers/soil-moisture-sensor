@@ -1,0 +1,22 @@
+{
+    "models": ["sen0193"],
+    "args": {
+        "waterVoltage": {
+            "type": "number",
+            "default": 1.2
+        },
+        "airVoltage": {
+            "type": "number",
+            "default": 2.6
+        },
+        "interval": {
+            "type": "number",
+            "default": 1000
+        }
+    },
+    "inputs": {
+        "adc": {
+            "type": "adc"
+        }
+    }
+}
